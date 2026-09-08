@@ -1,0 +1,75 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# Environment, Secrets & Local Configs (CRITICAL)
+.env
+*.env
+*.pem
+*.keystore
+*.jks
+local.properties
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code related (Keeps shared launch/settings configs, ignores local user state)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+.fvm/flutter_sdk
+
+# Android related
+.gradle/
+**/android/app/build/
+**/android/.gradle/
+**/android/captures/
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# iOS & macOS / CocoaPods
+**/ios/Pods/
+**/ios/Podfile.lock
+**/macOS/Pods/
+**/macOS/Podfile.lock
+**/ios/Frameworks/
+**/ios/DerivedData/
+*.xcworkspace
+*.xcodeproj
+
+# Desktop Platforms (Windows / Linux)
+**/windows/flutter/ephemeral/
+**/linux/flutter/ephemeral/
+
+# Symbolication & Obfuscation
+app.*.symbols
+app.*.map.json
+
+# Widget Preview related
+.widget_preview/
