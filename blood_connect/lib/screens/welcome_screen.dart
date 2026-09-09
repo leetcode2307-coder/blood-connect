@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import '../l10n/app_localizations.dart';
 import '../theme/app_theme.dart';
+import '../controllers/locale_controller.dart';
+import '../widgets/language_selector_sheet.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -8,42 +12,20 @@ class WelcomeScreen extends StatelessWidget {
   void _showLanguageSelector(BuildContext context) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
       ),
-      builder: (context) {
-        return Container(
-          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Select Language',
-                style: AppTheme.headlineLgMobile,
-              ),
-              const SizedBox(height: 16),
-              ListTile(
-                title: const Text('English'),
-                trailing: const Icon(Icons.check, color: AppTheme.primary),
-                onTap: () => Navigator.pop(context),
-              ),
-              ListTile(
-                title: const Text('Spanish'),
-                onTap: () => Navigator.pop(context),
-              ),
-              ListTile(
-                title: const Text('French'),
-                onTap: () => Navigator.pop(context),
-              ),
-            ],
-          ),
-        );
-      },
+      builder: (context) => const LanguageSelectorSheet(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final localeController = Provider.of<LocaleController>(context);
+    final currentLanguageCode = localeController.locale.languageCode.toUpperCase();
+
     return Scaffold(
       backgroundColor: AppTheme.background,
       body: SafeArea(
@@ -71,12 +53,12 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: const Row(
+                    child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.language, size: 16, color: AppTheme.onBackground),
-                        SizedBox(width: 6),
-                        Text('EN', style: AppTheme.labelMd),
+                        const Icon(Icons.language, size: 16, color: AppTheme.onBackground),
+                        const SizedBox(width: 6),
+                        Text(currentLanguageCode, style: AppTheme.labelMd),
                       ],
                     ),
                   ),
@@ -118,8 +100,8 @@ class WelcomeScreen extends StatelessWidget {
                   const SizedBox(height: 32),
                   
                   // Title
-                  const Text(
-                    'BloodConnect',
+                  Text(
+                    l10n.appTitle,
                     style: AppTheme.display,
                     textAlign: TextAlign.center,
                   ),
@@ -127,7 +109,7 @@ class WelcomeScreen extends StatelessWidget {
                   
                   // Subtitle
                   Text(
-                    'Connect • Donate • Save Lives',
+                    l10n.tagline,
                     style: AppTheme.bodyLg.copyWith(
                       color: const Color(0xFF5A403E), // on-surface-variant
                     ),
@@ -151,19 +133,19 @@ class WelcomeScreen extends StatelessWidget {
                   elevation: 2,
                   shadowColor: Colors.black.withOpacity(0.2),
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Get Started',
-                      style: TextStyle(
+                      l10n.getStarted,
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.5,
                       ),
                     ),
-                    SizedBox(width: 8),
-                    Icon(Icons.arrow_forward, size: 20),
+                    const SizedBox(width: 8),
+                    const Icon(Icons.arrow_forward, size: 20),
                   ],
                 ),
               ),
@@ -177,9 +159,9 @@ class WelcomeScreen extends StatelessWidget {
                   text: TextSpan(
                     style: AppTheme.bodyMd,
                     children: [
-                      const TextSpan(text: 'Already have an account? '),
+                      TextSpan(text: l10n.alreadyHaveAccount),
                       TextSpan(
-                        text: 'Sign In',
+                        text: l10n.signIn,
                         style: AppTheme.bodyMd.copyWith(
                           color: AppTheme.primary,
                           fontWeight: FontWeight.w700,

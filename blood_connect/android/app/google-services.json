@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "718327800",
+    "project_id": "blood-connect-6183b",
+    "storage_bucket": "blood-connect-6183b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718327800:android:ca614b07cb09ef29f4100d",
+        "android_client_info": {
+          "package_name": "com.example.blood_connect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718327800-nkqei4ipj22ampjf9d5jj3a27c91qblr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.blood_connect",
+            "certificate_hash": "526d66e9c4b12eb05c80628f1ade173a14abc0a1"
+          }
+        },
+        {
+          "client_id": "718327800-cruhio0q5crn07i2tklio5gv1303jg5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYFzDPcGHQ0uRqKA3whB_i0yTmUzdFm0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718327800-cruhio0q5crn07i2tklio5gv1303jg5c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "718327800-62a9pujrbuikmgsp6t1gdko69cgdsq25.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bloodConnect"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
